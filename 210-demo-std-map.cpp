@@ -39,6 +39,36 @@ int main() {
         cout << endl;
     }
 
+    int x = 0;
+    while(x != -1)
+    {
+        cout << "1. Increase Friendship\n2. Decrease Friendship\n3. Search for Villager\n4. Exit";
+        cin >> x;
+
+        if(x == 1)
+        {
+            string name;
+            cout << "Enter villager's name: ";
+            cin >> name;
+            friendUp(villagerColors, name);
+        }
+        if(x == 2)
+        {
+            string name;
+            cout << "Enter villager's name: ";
+            cin >> name;
+            friendDown(villagerColors, name);
+        }
+        if(x == 3)
+        {
+            string name;
+            cout << "Enter villager's name: ";
+            cin >> name;
+            searcher(villagerColors, name);
+        }
+        
+    }
+
     // access the map using iterators
     /*cout << "\nVillagers and their favorite colors (iterators):" << endl;
     for (map<string, tuple<int, string, string>>::iterator it = villagerColors.begin(); 
@@ -67,12 +97,29 @@ int main() {
 
 void freindUp(map<string, tuple<int, string, string>>& vill, string name)
 {
-    get<0>(vill.at(name))+= 1;
+    auto it = vill.find(name);
+    if(it != vill.end())
+    {
+        get<0>(vill.at(name))+= 1;
+    }
+    else
+    {
+        cout << "Villager does not exist\n";
+    }
+    
 }
 
 void freindDown(map<string, tuple<int, string, string>>& vill, string name)
 {
-    get<0>(vill.at(name))-= 1;
+    auto it = vill.find(name);
+    if(it != vill.end())
+    {
+        get<0>(vill.at(name))-= 1;
+    }
+    else
+    {
+        cout << "Villager does not exist\n";
+    }
 }
 
 void searcher(map<string, tuple<int, string, string>>& vill, string name)

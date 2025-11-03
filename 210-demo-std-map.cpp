@@ -9,13 +9,13 @@ using namespace std;
 
 int main() {
     // declarations
-    map<int, string, string> villagerColors;
+    map<string, vector<string>> villagerColors;
 
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
-    villagerColors["Audie"] = 6;
-    villagerColors["Raymond"] = 4;
-    villagerColors.insert({"Marshal", 9});
+    villagerColors["Audie"] = {"6", "wolf", "Hello there Island Representative"};
+    villagerColors["Raymond"] = {"4", "cat", "Hi Island Rep!"};
+    villagerColors.insert(make_pair("Marshal", {"9", "squirrel", "Seize the day"}));
 
     // access the map using a range-based for loop
     cout << "Villagers and their favorite colors (range-based for loop):" << endl;

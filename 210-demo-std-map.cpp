@@ -7,8 +7,8 @@ IDE used: VSC*/
 #include <string>
 using namespace std;
 
-void deleter();
-void adder();
+void deleter(map<string, tuple<int, string, string>>&, string);
+void adder(map<string, tuple<int, string, string>>&);
 void friendUp(map<string, tuple<int, string, string>>&, string);
 void friendDown(map<string, tuple<int, string, string>>&, string);
 void searcher(map<string, tuple<int, string, string>>&, string);
@@ -40,26 +40,37 @@ int main() {
     }
 
     int x = 0;
-    while(x != -1)
+    while(x != 6)
     {
-        cout << "1. Increase Friendship\n2. Decrease Friendship\n3. Search for Villager\n4. Exit";
+        cout << "3. Increase Friendship\n4. Decrease Friendship\n5. Search for Villager\n6. Exit";
         cin >> x;
 
         if(x == 1)
         {
-            string name;
-            cout << "Enter villager's name: ";
-            cin >> name;
-            friendUp(villagerColors, name);
+            adder(villagerColors);
         }
         if(x == 2)
         {
             string name;
             cout << "Enter villager's name: ";
             cin >> name;
-            friendDown(villagerColors, name);
+            deleter(villagerColors, name);
         }
         if(x == 3)
+        {
+            string name;
+            cout << "Enter villager's name: ";
+            cin >> name;
+            friendUp(villagerColors, name);
+        }
+        if(x == 4)
+        {
+            string name;
+            cout << "Enter villager's name: ";
+            cin >> name;
+            friendDown(villagerColors, name);
+        }
+        if(x == 5)
         {
             string name;
             cout << "Enter villager's name: ";
@@ -81,7 +92,7 @@ int main() {
     }*/ 
 
     // delete an element
-    villagerColors.erase("Raymond");
+    
 
     // search for an element using .find() to avoid errors
     string searchKey = "Audie";
@@ -93,6 +104,31 @@ int main() {
     cout << "Size after clear: " << villagerColors.size() << endl;
 
     return 0;
+}
+
+void adder(map<string, tuple<int, string, string>>& vill)
+{
+    string name;
+    int freind;
+    string spec;
+    string phrase;
+    cout << "Villager's name: \n";
+    cin >> name;
+    cout << "Friendship Level: \n";
+    cin >> freind;
+    cout << "Species: \n";
+    cin >> spec;
+    cout << "Catchphrase: \n";
+    cin >> phrase;
+    tuple<int, string, string> newVill = make_tuple(freind, spec, phrase);
+    vill[name] = {newVill};
+
+    cout << name << " added\n";
+}
+
+void deleter(map<string, tuple<int, string, string>>& vill, string name)
+{
+    vill.erase(name);
 }
 
 void freindUp(map<string, tuple<int, string, string>>& vill, string name)

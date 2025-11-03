@@ -7,17 +7,20 @@ IDE used: VSC*/
 #include <string>
 using namespace std;
 
-void deleter(map<string, tuple<int, string, string>>&, string);
 void adder(map<string, tuple<int, string, string>>&);
+/*void deleter(map<string, tuple<int, string, string>>&, string);
 void friendUp(map<string, tuple<int, string, string>>&, string);
 void friendDown(map<string, tuple<int, string, string>>&, string);
 void searcher(map<string, tuple<int, string, string>>&, string);
+*/
 
-
-int main() {
+int main() 
+{
+    cout << "Area 0";
     // declarations
     map<string, tuple<int, string, string>> villagerColors;
 
+    cout << "Area 1";
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
     tuple<int, string, string> aud = make_tuple(6, "wolf", "Hello there Island Representative");
@@ -26,6 +29,8 @@ int main() {
     villagerColors["Audie"] = {aud};
     villagerColors["Raymond"] = {ray};
     villagerColors.insert(make_pair("Marshal", mar));
+
+    cout << "Area 2";
 
     // access the map using a range-based for loop
     cout << "Villagers and their data:" << endl;
@@ -42,7 +47,7 @@ int main() {
     int x = 0;
     while(x != 6)
     {
-        cout << "3. Increase Friendship\n4. Decrease Friendship\n5. Search for Villager\n6. Exit";
+        cout << "1. Add Villager\n2. Delete Villager\n3. Increase Friendship\n4. Decrease Friendship\n5. Search for Villager\n6. Exit";
         cin >> x;
 
         if(x == 1)
@@ -54,28 +59,28 @@ int main() {
             string name;
             cout << "Enter villager's name: ";
             cin >> name;
-            deleter(villagerColors, name);
+            //deleter(villagerColors, name);
         }
         if(x == 3)
         {
             string name;
             cout << "Enter villager's name: ";
             cin >> name;
-            friendUp(villagerColors, name);
+            //friendUp(villagerColors, name);
         }
         if(x == 4)
         {
             string name;
             cout << "Enter villager's name: ";
             cin >> name;
-            friendDown(villagerColors, name);
+            //friendDown(villagerColors, name);
         }
         if(x == 5)
         {
             string name;
             cout << "Enter villager's name: ";
             cin >> name;
-            searcher(villagerColors, name);
+            //searcher(villagerColors, name);
         }
         
     }
@@ -89,7 +94,7 @@ int main() {
             cout << color << " ";
         }
         cout << endl;
-    }*/ 
+    }*
 
     // delete an element
     
@@ -102,10 +107,10 @@ int main() {
     cout << "\nSize before clear: " << villagerColors.size() << endl;
     villagerColors.clear();
     cout << "Size after clear: " << villagerColors.size() << endl;
-
+*/
     return 0;
 }
-
+/*
 void adder(map<string, tuple<int, string, string>>& vill)
 {
     string name;
@@ -167,4 +172,4 @@ void searcher(map<string, tuple<int, string, string>>& vill, string name)
         cout << endl;
     } else
         cout << endl << name << " not found.\n" << endl;
-}
+}*/

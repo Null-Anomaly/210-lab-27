@@ -41,7 +41,7 @@ int main() {
             cout << color << " ";
         }
         cout << endl;
-    }*/
+    }*/ 
 
     // delete an element
     villagerColors.erase("Raymond");

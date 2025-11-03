@@ -33,7 +33,7 @@ int main() {
     }
 
     // access the map using iterators
-    cout << "\nVillagers and their favorite colors (iterators):" << endl;
+    /*cout << "\nVillagers and their favorite colors (iterators):" << endl;
     for (map<string, tuple<int, string, string>>::iterator it = villagerColors.begin(); 
                                                it != villagerColors.end(); ++it) {
         cout << it->first << ": ";
@@ -41,7 +41,7 @@ int main() {
             cout << color << " ";
         }
         cout << endl;
-    }
+    }*/
 
     // delete an element
     villagerColors.erase("Raymond");
@@ -52,8 +52,9 @@ int main() {
     if (it != villagerColors.end()) {  // the iterator points to beyond the end of the map
                                        // if searchKey is not found
         cout << "\nFound " << searchKey << "'s favorite colors: ";
-        for (auto color : it->second)  // range loop to traverse the value/vector
-            cout << color << " ";
+        //for (auto color : it->second)  // range loop to traverse the value/vector
+        //    cout << color << " ";
+        cout << get<0>(villagerColors.at(searchKey));
         cout << endl;
     } else
         cout << endl << searchKey << " not found." << endl;

@@ -21,11 +21,13 @@ int main() {
     villagerColors.insert(make_pair("Marshal", mar));
 
     // access the map using a range-based for loop
-    cout << "Villagers and their favorite colors (range-based for loop):" << endl;
+    cout << "Villagers and their data:" << endl;
     for (auto pair : villagerColors) {
         cout << pair.first << ": ";
-        for (auto color : pair.second)
-            cout << color << " ";
+        for(int i = 0; i < 3; i++)
+        {
+            cout << get<i>(pair.second) <<
+        }
         cout << endl;
     }
 

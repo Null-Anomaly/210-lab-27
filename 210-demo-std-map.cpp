@@ -9,13 +9,16 @@ using namespace std;
 
 int main() {
     // declarations
-    map<string, vector<string>> villagerColors;
+    map<string, tuple<int, string, string>> villagerColors;
 
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
-    villagerColors["Audie"] = {"6", "wolf", "Hello there Island Representative"};
-    villagerColors["Raymond"] = {"4", "cat", "Hi Island Rep!"};
-    villagerColors.insert(make_pair("Marshal", {"9", "squirrel", "Seize the day"}));
+    tuple<int, string, string> aud = make_tuple(6, "wolf", "Hello there Island Representative");
+    tuple<int, string, string> ray = make_tuple(4, "cat", "Hi Island Rep!");
+    tuple<int, string, string> mar = make_tuple(9, "squirrel", "Seize the day");
+    villagerColors["Audie"] = {aud};
+    villagerColors["Raymond"] = {ray};
+    villagerColors.insert(make_pair("Marshal", mar));
 
     // access the map using a range-based for loop
     cout << "Villagers and their favorite colors (range-based for loop):" << endl;

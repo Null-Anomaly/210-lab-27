@@ -24,16 +24,17 @@ int main() {
     cout << "Villagers and their data:" << endl;
     for (auto pair : villagerColors) {
         cout << pair.first << ": ";
-        for(int i = 0; i < 3; i++)
-        {
-            cout << get<i>(pair.second) <<
-        }
+        cout << " [" <<get<0>(pair.second);
+        cout << ", " <<get<1>(pair.second);
+        cout << ", " <<get<2>(pair.second) << "]\n";
+
+
         cout << endl;
     }
 
     // access the map using iterators
     cout << "\nVillagers and their favorite colors (iterators):" << endl;
-    for (map<string, vector<string>>::iterator it = villagerColors.begin(); 
+    for (map<string, tuple<int, string, string>>::iterator it = villagerColors.begin(); 
                                                it != villagerColors.end(); ++it) {
         cout << it->first << ": ";
         for (auto color : it->second) {

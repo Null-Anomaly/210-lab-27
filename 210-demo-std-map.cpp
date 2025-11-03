@@ -7,6 +7,13 @@ IDE used: VSC*/
 #include <string>
 using namespace std;
 
+void deleter();
+void adder();
+void friendUp(map<string, tuple<int, string, string>>&, string);
+void friendDown(map<string, tuple<int, string, string>>&, string);
+void searcher(map<string, tuple<int, string, string>>&, string);
+
+
 int main() {
     // declarations
     map<string, tuple<int, string, string>> villagerColors;
@@ -48,16 +55,7 @@ int main() {
 
     // search for an element using .find() to avoid errors
     string searchKey = "Audie";
-    auto it = villagerColors.find(searchKey);
-    if (it != villagerColors.end()) {  // the iterator points to beyond the end of the map
-                                       // if searchKey is not found
-        cout << "\nFound " << searchKey << "'s favorite colors: ";
-        //for (auto color : it->second)  // range loop to traverse the value/vector
-        //    cout << color << " ";
-        cout << get<0>(villagerColors.at(searchKey));
-        cout << endl;
-    } else
-        cout << endl << searchKey << " not found." << endl;
+    
 
     // report size, clear, report size again to confirm map operations
     cout << "\nSize before clear: " << villagerColors.size() << endl;
@@ -65,4 +63,25 @@ int main() {
     cout << "Size after clear: " << villagerColors.size() << endl;
 
     return 0;
+}
+
+void freindUp(map<string, tuple<int, string, string>>& vill, string name)
+{
+    get<0>(vill.at(name))+= 1;
+}
+
+void freindDown(map<string, tuple<int, string, string>>& vill, string name)
+{
+    get<0>(vill.at(name))-= 1;
+}
+
+void searcher(map<string, tuple<int, string, string>>& vill, string name)
+{
+    auto it = vill.find(name);
+    if (it != vill.end()) {  // the iterator points to beyond the end of the map
+                                       // if searchKey is not found
+        cout << "\nFound " << name << "\n";
+        cout << endl;
+    } else
+        cout << endl << name << " not found.\n" << endl;
 }
